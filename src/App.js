@@ -18,28 +18,27 @@ class App extends React.Component {
     super(props);
     this.state = {
       popularMovies: [],
-      latestMovies: [],
+      nowPlaying: [],
     };
   }
 
   componentDidMount() {
-    const combinedData = { request1: {}, request2: {} };
     Promise.all([
       fetch(
         `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
       ).then((value) => value.json()),
       fetch(
-        `https://api.themoviedb.org/3/movie/latest?api_key=${API_KEY}&language=en-US`
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`
       ).then((value) => value.json()),
     ]).then((data) => {
       const popular = data[0];
-      const latest = data[1];
-      console.log("checking data[1]: ", latest);
+      const now = data[1];
+
       this.setState(
-        { popularMovies: popular.results, latestMovies: latest.results },
+        { popularMovies: popular.results, nowPlaying: now.results },
         () => {
           console.log("checking state: ", this.state.popularMovies);
-          console.log("checking state: ", this.state.latestMovies);
+          console.log("checking state: ", this.state.nowPlaying);
         }
       );
     });
@@ -167,8 +166,9 @@ class App extends React.Component {
             })}
           </Slider>
           <br />
+          {console.log("nowPlaying checking: ", this.state.nowPlaying)}
           <Slider {...call_action_settings} speed={7000}>
-            {this.state.popularMovies.map((m) => {
+            {this.state.nowPlaying.map((m) => {
               return (
                 <div className="w-full h-auto border-solid" key={m.id}>
                   <img
