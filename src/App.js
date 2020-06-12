@@ -10,6 +10,7 @@ import eco_img from "./assets/images/lp/eco.jpg";
 import florida_img from "./assets/images/lp/florida.jpg";
 import call_img from "./assets/images/lp/call.jpg";
 import BorderedButton from "./components/bordered-button/borderedButton.component";
+import Tab from "./components/tab/tab.component";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -189,6 +190,12 @@ class App extends React.Component {
               <BorderedButton>Browse Movies</BorderedButton>
             </div>
           </div>
+        </section>
+        <section>
+          <div className="text-center text-white font-semibold text-4xl tracking-wider leading-tight mt-20 mb-20">
+            Stream on all your favorite devices, any time, anywhere
+          </div>
+          <Tab></Tab>
         </section>
       </div>
     );
