@@ -22,6 +22,11 @@ class App extends React.Component {
       nowPlaying: [],
     };
   }
+  gradientStyle = {
+    background: "rgb(184, 189, 196)",
+    background:
+      "radial-gradient(circle, rgba(184,189,196,1) 0%, rgba(1,6,14,1) 51%, rgba(3,25,56,1) 100%)",
+  };
 
   componentDidMount() {
     Promise.all([
@@ -191,8 +196,8 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-        <section>
-          <div className="text-center text-white font-semibold text-4xl tracking-wider leading-tight mt-20 mb-20">
+        <section style={this.gradientStyle}>
+          <div className="text-center text-white font-bold text-4xl tracking-wider leading-tight mt-20 mb-20 w-2/3 ml-auto mr-auto pl-20 pr-20">
             Stream on all your favorite devices, any time, anywhere
           </div>
           <Tab></Tab>
