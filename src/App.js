@@ -23,9 +23,9 @@ class App extends React.Component {
     };
   }
   gradientStyle = {
-    background: "rgb(184, 189, 196)",
+    background: "rgb(121,149,187)",
     background:
-      "radial-gradient(circle, rgba(184,189,196,1) 0%, rgba(1,6,14,1) 51%, rgba(3,25,56,1) 100%)",
+      "radial-gradient(circle, rgba(121,149,187,1) 0%,rgba(25,31,40,1) 65%, rgba(0,0,0,1) 100%)",
   };
 
   componentDidMount() {
@@ -124,7 +124,9 @@ class App extends React.Component {
               Stream thousands of films for free, thanks to the generous support
               of your public library or university
             </p>
-            <StartButton width="w-1/2">Get Started</StartButton>
+            <div className="w-1/2">
+              <StartButton>Get Started</StartButton>
+            </div>
             <p className="text-white text-sm font-thin w-2/3 mt-10 text-gray-300">
               Available in participating public libraries, colleges and
               universities.
@@ -149,7 +151,9 @@ class App extends React.Component {
               ad-free films and series that can be enjoyed on your TV, mobile
               phone, tablet and online.
             </p>
-            <StartButton width="w-2/5">Get Started</StartButton>
+            <div className="w-2/5">
+              <StartButton>Get Started</StartButton>
+            </div>
           </div>
         </section>
         <section>
@@ -201,6 +205,12 @@ class App extends React.Component {
             Stream on all your favorite devices, any time, anywhere
           </div>
           <Tab></Tab>
+          <div className="text-center text-white font-semibold text-2xl tracking-wider leading-tight mt-10 mb-20 w-2/3 ml-auto mr-auto pt-10 pl-20 pr-20 flex flex-col items-center border-solid border-t border-gray-600">
+            Start watching the latest movies any time, anywhere
+            <div className="w-1/3 mt-4">
+              <StartButton>Get Started</StartButton>
+            </div>
+          </div>
         </section>
       </div>
     );

@@ -1,17 +1,36 @@
 import React from "react";
+import TabContent from "../tab-content/tabContent.component";
+import laptopImg from "../../assets/images/lp-tab/device-laptop.png";
+import tvImg from "../../assets/images/lp-tab/device-tv.png";
+import tabletImg from "../../assets/images/lp-tab/device-tablet-phone.png";
+import appleLogo from "../../assets/images/lp-tab-company/apple.svg";
+import rokuLogo from "../../assets/images/lp-tab-company/roku.svg";
+import chromeLogo from "../../assets/images/lp-tab-company/chromecast.svg";
+import androidLogo from "../../assets/images/lp-tab-company/android.svg";
+import fireLogo from "../../assets/images/lp-tab-company/fireTV.svg";
+import samsungLogo from "../../assets/images/lp-tab-company/samsung.svg";
 
 class Tab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       openTab: 1,
+      tvCompanies: [
+        appleLogo,
+        rokuLogo,
+        chromeLogo,
+        androidLogo,
+        fireLogo,
+        samsungLogo,
+      ],
+      tabletCompanies: [appleLogo, rokuLogo, chromeLogo, androidLogo],
     };
   }
 
   render() {
     return (
       <div className="flex flex-col text-white w-11/12 m-auto">
-        <div className="flex">
+        <div className="flex border-solid border-b border-gray-600">
           <button
             className={`tabButton flex-1 flex flex-col justify-center items-center ${
               this.state.openTab === 1 ? "text-white" : "text-gray-600"
@@ -21,8 +40,16 @@ class Tab extends React.Component {
               this.setState({ openTab: 1 });
             }}
           >
-            <i class="fas fa-tv fa-2x"></i>
-            <span>TV</span>
+            <i class="fas fa-tv fa-3x"></i>
+            <span
+              className={`w-full border-solid border-b-4 ${
+                this.state.openTab === 1
+                  ? "border-primary"
+                  : "border-transparent"
+              }`}
+            >
+              TV
+            </span>
           </button>
           <button
             className={`tabButton flex-1 flex flex-col justify-center items-center ${
@@ -33,8 +60,16 @@ class Tab extends React.Component {
               this.setState({ openTab: 2 });
             }}
           >
-            <i class="fas fa-mobile-alt fa-2x"></i>
-            <span>Phone, Tablet &amp; Mobile</span>
+            <i class="fas fa-mobile-alt fa-3x"></i>
+            <span
+              className={`w-full border-solid border-b-4 ${
+                this.state.openTab === 2
+                  ? "border-primary"
+                  : "border-transparent"
+              }`}
+            >
+              Phone, Tablet &amp; Mobile
+            </span>
           </button>
           <button
             className={`tabButton flex-1 flex flex-col justify-center items-center ${
@@ -45,35 +80,48 @@ class Tab extends React.Component {
               this.setState({ openTab: 3 });
             }}
           >
-            <i class="fas fa-laptop fa-2x"></i>
-            <span>Desktop &amp; Laptop</span>
+            <i class="fas fa-laptop fa-3x"></i>
+            <span
+              className={`w-full border-solid border-b-4 ${
+                this.state.openTab === 3
+                  ? "border-primary"
+                  : "border-transparent"
+              }`}
+            >
+              Desktop &amp; Laptop
+            </span>
           </button>
         </div>
         <div>
           <div
             className={`${
               this.state.openTab === 1 ? "block" : "hidden"
-            } tabContent flex flex-col justify-center items-center border-solid border-4 border-gray-600`}
+            } tabContent flex flex-col justify-center items-center`}
             id="tv"
           >
-            {/* {console.log("openTab: ", this.state.openTab)} */}
-            TV Content
+            <TabContent img={tvImg} logo={this.state.tvCompanies}>
+              Enjoy on your TV
+            </TabContent>
           </div>
           <div
             className={`${
               this.state.openTab === 2 ? "block" : "hidden"
-            } tabContent flex flex-col justify-center items-center border-solid border-4 border-gray-600`}
+            } tabContent flex flex-col justify-center items-center`}
             id="phone"
           >
-            Phone, Tablet Content
+            <TabContent img={tabletImg} logo={this.state.tabletCompanies}>
+              Watch Kanopy on the go
+            </TabContent>
           </div>
           <div
             className={`${
               this.state.openTab === 3 ? "block" : "hidden"
-            } tabContent flex flex-col justify-center items-center border-solid border-4 border-gray-600`}
+            } tabContent flex flex-col justify-center items-center`}
             id="desktop"
           >
-            Desktop Laptop Content
+            <TabContent img={laptopImg} logo={this.state.tabletCompanies}>
+              Stream Kanopy to your laptop or computer
+            </TabContent>
           </div>
         </div>
       </div>
