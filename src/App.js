@@ -11,6 +11,7 @@ import florida_img from "./assets/images/lp/florida.jpg";
 import call_img from "./assets/images/lp/call.jpg";
 import BorderedButton from "./components/bordered-button/borderedButton.component";
 import Tab from "./components/tab/tab.component";
+import Accordion from "./components/accordion/accordion.component";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -23,7 +24,6 @@ class App extends React.Component {
     };
   }
   gradientStyle = {
-    background: "rgb(121,149,187)",
     background:
       "radial-gradient(circle, rgba(121,149,187,1) 0%,rgba(25,31,40,1) 65%, rgba(0,0,0,1) 100%)",
   };
@@ -211,6 +211,9 @@ class App extends React.Component {
               <StartButton>Get Started</StartButton>
             </div>
           </div>
+        </section>
+        <section>
+          <Accordion title="title text" content="content test" expand={false} />
         </section>
       </div>
     );

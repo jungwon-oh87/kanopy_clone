@@ -3,27 +3,14 @@ import TabContent from "../tab-content/tabContent.component";
 import laptopImg from "../../assets/images/lp-tab/device-laptop.png";
 import tvImg from "../../assets/images/lp-tab/device-tv.png";
 import tabletImg from "../../assets/images/lp-tab/device-tablet-phone.png";
-import appleLogo from "../../assets/images/lp-tab-company/apple.svg";
-import rokuLogo from "../../assets/images/lp-tab-company/roku.svg";
-import chromeLogo from "../../assets/images/lp-tab-company/chromecast.svg";
-import androidLogo from "../../assets/images/lp-tab-company/android.svg";
-import fireLogo from "../../assets/images/lp-tab-company/fireTV.svg";
-import samsungLogo from "../../assets/images/lp-tab-company/samsung.svg";
 
 class Tab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       openTab: 1,
-      tvCompanies: [
-        appleLogo,
-        rokuLogo,
-        chromeLogo,
-        androidLogo,
-        fireLogo,
-        samsungLogo,
-      ],
-      tabletCompanies: [appleLogo, rokuLogo, chromeLogo, androidLogo],
+      // tvCompanies: [appleLogo, rokuLogo, chromeLogo, androidLogo, fireLogo],
+      // tabletCompanies: [appleLogo, rokuLogo, chromeLogo, androidLogo],
     };
   }
 

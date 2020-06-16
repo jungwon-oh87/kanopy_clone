@@ -14,7 +14,7 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      primary: "#de3f00",
+      myPrimary: "#de3f00",
       black: "#000",
       white: "#fff",
       gray: {
@@ -150,9 +150,9 @@ module.exports = {
       "64": "16rem",
     },
     backgroundColor: (theme) => ({
-      // ...theme("color"),
-      primary: "#de3f00",
-      black: "#000",
+      ...theme("colors"),
+      // primary: "#de3f00",
+      // black: "#000",
     }),
     // backgroundColor: (theme) => theme("colors"),
     backgroundOpacity: (theme) => theme("opacity"),

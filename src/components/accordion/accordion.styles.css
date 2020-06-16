@@ -1,0 +1,21 @@
+.accord-title {
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+.accord-title::after {
+  content: "+";
+  font-size: 2.25rem;
+  color: #cbd5e0;
+  position: absolute;
+  right: 30px;
+}
+.accord-title.accord-is-expanded::after {
+  content: "-";
+  color: #cbd5e0;
+  font-size: 2.25rem;
+  position: absolute;
+  right: 30px;
+}
+.accord-content {
+}
