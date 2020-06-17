@@ -9,14 +9,14 @@ const Accordion = (props) => {
         className={expand ? "accord-title accord-is-expanded" : "accord-title"}
         onClick={onClick}
       >
-        <span className="text-4xl">{title}</span>
+        <span className="text-2xl font-bold">{title}</span>
       </dt>
       <dd
         className={
           expand ? "accord-content accord-is-expanded" : "accord-content"
         }
       >
-        {content}
+        <p>{content}</p>
       </dd>
     </div>
   );

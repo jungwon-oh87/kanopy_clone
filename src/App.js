@@ -21,13 +21,57 @@ class App extends React.Component {
     this.state = {
       popularMovies: [],
       nowPlaying: [],
+      accordionBlocks: [true, false, false, false, false, false],
     };
   }
   gradientStyle = {
     background:
       "radial-gradient(circle, rgba(121,149,187,1) 0%,rgba(25,31,40,1) 65%, rgba(0,0,0,1) 100%)",
   };
+  accordionList = [
+    {
+      title: "What is Kanopy?",
+      content:
+        "Kanopy is the best video streaming service for quality, thoughtful entertainment. Find movies, documentaries, foreign films, classic cinema, independent films and educational videos that inspire, enrich and entertain. We partner with public libraries and universities to bring you an ad-free experience that can be enjoyed on your TV, mobile phone, tablets and online.",
+    },
+    {
+      title: "How is Kanopy free for me?",
+      content:
+        "Just as your library buys books to add to their collection for you to borrow, your library offers a variety of digital resources too - Kanopy is one of their more popular digital resources. Kanopy does not charge you because the public library or university covers all associated costs, allowing you to watch for free with no ads.",
+    },
+    {
+      title: "Why do I need a library card or university login to sign up?",
+      content:
+        "Just as your library buys books to add to their collection for you to borrow, your library offers a variety of digital resources too - Kanopy is one of their more popular digital resources. Kanopy does not charge you because the public library or university covers all associated costs, allowing you to watch for free with no ads.",
+    },
+    {
+      title: "Why do I need a library card or university login to sign up?",
+      content:
+        "Kanopy is the best video streaming service for quality, thoughtful entertainment. Find movies, documentaries, foreign films, classic cinema, independent films and educational videos that inspire, enrich and entertain. We partner with public libraries and universities to bring you an ad-free experience that can be enjoyed on your TV, mobile phone, tablets and online.",
+    },
+    {
+      title: "Why do I need a library card or university login to sign up?",
+      content:
+        "Kanopy is the best video streaming service for quality, thoughtful entertainment. Find movies, documentaries, foreign films, classic cinema, independent films and educational videos that inspire, enrich and entertain. We partner with public libraries and universities to bring you an ad-free experience that can be enjoyed on your TV, mobile phone, tablets and online.",
+    },
+    {
+      title: "Why do I need a library card or university login to sign up?",
+      content:
+        "Kanopy is the best video streaming service for quality, thoughtful entertainment. Find movies, documentaries, foreign films, classic cinema, independent films and educational videos that inspire, enrich and entertain. We partner with public libraries and universities to bring you an ad-free experience that can be enjoyed on your TV, mobile phone, tablets and online.",
+    },
+  ];
+  accord_toggle = (index) => {
+    let temp = [...this.state.accordionBlocks];
+    let i = 0;
+    for (i; i < temp.length; i++) {
+      temp[i] = false;
+    }
 
+    temp[index] = !temp[index];
+    this.setState({ accordionBlocks: temp }, () => {
+      console.log("checking Accorion blocks: ", this.state.accordionBlocks);
+    });
+  };
   componentDidMount() {
     Promise.all([
       fetch(
@@ -212,8 +256,23 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-        <section>
-          <Accordion title="title text" content="content test" expand={false} />
+        <section className="flex flex-col justify-center items-center">
+          <span className="w-full text-white my-10 text-4xl font-bold text-center">
+            Frequently Asked Questions
+          </span>
+          <dl className="w-full app-accordion-container">
+            {this.accordionList.map((accord, index) => (
+              <Accordion
+                title={accord.title}
+                content={accord.content}
+                onClick={() => {
+                  console.log("acoordion clicked");
+                  this.accord_toggle(index);
+                }}
+                expand={this.state.accordionBlocks[index]}
+              />
+            ))}
+          </dl>
         </section>
       </div>
     );

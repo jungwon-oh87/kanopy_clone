@@ -3,16 +3,19 @@ import TabContent from "../tab-content/tabContent.component";
 import laptopImg from "../../assets/images/lp-tab/device-laptop.png";
 import tvImg from "../../assets/images/lp-tab/device-tv.png";
 import tabletImg from "../../assets/images/lp-tab/device-tablet-phone.png";
+import rokuImg from "../../assets/images/lp-tab-company/roku.png";
+import chromecastImg from "../../assets/images/lp-tab-company/chromecast.png";
+import fireImg from "../../assets/images/lp-tab-company/fire.png";
 
 class Tab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       openTab: 1,
-      // tvCompanies: [appleLogo, rokuLogo, chromeLogo, androidLogo, fireLogo],
-      // tabletCompanies: [appleLogo, rokuLogo, chromeLogo, androidLogo],
     };
   }
+  tvCompanies = [rokuImg, chromecastImg, fireImg];
+  tabletCompanies = [rokuImg, chromecastImg];
 
   render() {
     return (
@@ -31,7 +34,7 @@ class Tab extends React.Component {
             <span
               className={`w-full border-solid border-b-4 ${
                 this.state.openTab === 1
-                  ? "border-primary"
+                  ? "border-myPrimary"
                   : "border-transparent"
               }`}
             >
@@ -51,7 +54,7 @@ class Tab extends React.Component {
             <span
               className={`w-full border-solid border-b-4 ${
                 this.state.openTab === 2
-                  ? "border-primary"
+                  ? "border-myPrimary"
                   : "border-transparent"
               }`}
             >
@@ -71,7 +74,7 @@ class Tab extends React.Component {
             <span
               className={`w-full border-solid border-b-4 ${
                 this.state.openTab === 3
-                  ? "border-primary"
+                  ? "border-myPrimary"
                   : "border-transparent"
               }`}
             >
@@ -86,7 +89,7 @@ class Tab extends React.Component {
             } tabContent flex flex-col justify-center items-center`}
             id="tv"
           >
-            <TabContent img={tvImg} logo={this.state.tvCompanies}>
+            <TabContent img={tvImg} logo={this.tvCompanies}>
               Enjoy on your TV
             </TabContent>
           </div>
@@ -96,7 +99,7 @@ class Tab extends React.Component {
             } tabContent flex flex-col justify-center items-center`}
             id="phone"
           >
-            <TabContent img={tabletImg} logo={this.state.tabletCompanies}>
+            <TabContent img={tabletImg} logo={this.tabletCompanies}>
               Watch Kanopy on the go
             </TabContent>
           </div>
@@ -106,7 +109,7 @@ class Tab extends React.Component {
             } tabContent flex flex-col justify-center items-center`}
             id="desktop"
           >
-            <TabContent img={laptopImg} logo={this.state.tabletCompanies}>
+            <TabContent img={laptopImg}>
               Stream Kanopy to your laptop or computer
             </TabContent>
           </div>
