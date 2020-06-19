@@ -15,6 +15,7 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
       myPrimary: "#de3f00",
+      myTemp: "#de3f00",
       black: "#000",
       white: "#fff",
       gray: {
@@ -154,7 +155,7 @@ module.exports = {
       // primary: "#de3f00",
       // black: "#000",
     }),
-    // backgroundColor: (theme) => theme("colors"),
+    backgroundColor: (theme) => theme("colors"),
     backgroundOpacity: (theme) => theme("opacity"),
     backgroundPosition: {
       bottom: "bottom",

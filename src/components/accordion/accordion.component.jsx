@@ -16,7 +16,9 @@ const Accordion = (props) => {
           expand ? "accord-content accord-is-expanded" : "accord-content"
         }
       >
-        <p>{content}</p>
+        {content.split("\n").map((item, i) => {
+          return <p key={i}>{item}</p>;
+        })}
       </dd>
     </div>
   );
