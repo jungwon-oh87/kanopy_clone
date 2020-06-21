@@ -12,10 +12,10 @@ import call_img from "../../assets/images/lp/call.jpg";
 import BorderedButton from "../../components/bordered-button/borderedButton.component";
 import Tab from "../../components/tab/tab.component";
 import Accordion from "../../components/accordion/accordion.component";
-
+import { Link } from "react-router-dom";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-class Homepage extends React.Component {
+class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -175,9 +175,10 @@ class Homepage extends React.Component {
               Stream thousands of films for free, thanks to the generous support
               of your public library or university
             </p>
-            <div className="w-1/2">
+            <Link to="/signup" className="w-1/2">
               <StartButton>Get Started</StartButton>
-            </div>
+            </Link>
+
             <p className="text-white text-sm font-thin w-2/3 mt-10 text-gray-300">
               Available in participating public libraries, colleges and
               universities.
@@ -202,9 +203,9 @@ class Homepage extends React.Component {
               ad-free films and series that can be enjoyed on your TV, mobile
               phone, tablet and online.
             </p>
-            <div className="w-2/5">
+            <Link to="/signup" className="w-2/5">
               <StartButton>Get Started</StartButton>
-            </div>
+            </Link>
           </div>
         </section>
         <section>
@@ -258,9 +259,9 @@ class Homepage extends React.Component {
           <Tab></Tab>
           <div className="text-center text-white font-semibold text-2xl tracking-wider leading-tight mt-10 mb-20 w-2/3 ml-auto mr-auto pt-10 pl-20 pr-20 flex flex-col items-center border-solid border-t border-gray-600">
             Start watching the latest movies any time, anywhere
-            <div className="w-1/3 mt-4">
+            <Link to="/signup" className="w-1/3 mt-4">
               <StartButton>Get Started</StartButton>
-            </div>
+            </Link>
           </div>
         </section>
         <section className="flex flex-col justify-center items-center">
@@ -283,9 +284,9 @@ class Homepage extends React.Component {
           <span className="w-full text-white mt-10 mb-4 text-3xl font-semibold text-center">
             Sign up today for free through your public library or university
           </span>
-          <div className="w-1/6 mt-4">
+          <Link to="/signup" className="w-1/6 mt-4">
             <StartButton>Get Started</StartButton>
-          </div>
+          </Link>
         </section>
       </div>
     );
